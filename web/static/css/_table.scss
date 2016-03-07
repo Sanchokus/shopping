@@ -1,0 +1,88 @@
+$headerColor: rgb(251,99,99);
+$borderColor: gray;
+$evenRowColor: white;
+$oddRowColor: #DED7D7;
+$fontColor: #383838;
+$unselectedRowColor: #FFFFFF;
+$selectedRowColor: #6AE0BE;
+$deselectAnimationDuration: 0.5s;
+$selectAnimationDuration: 0.5s;
+
+table thead {
+  background-color: $headerColor;
+  font-weight: bold;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#item-table {
+  border-color: $borderColor;
+  color: $fontColor;
+}
+
+#item-table>thead>tr {
+  font-size: 40px;
+}
+
+.item-table-cell {
+  border-color: $borderColor !important;
+}
+
+#item-table.table-striped>tbody>tr.unselected-row:nth-of-type(odd) {
+  background-color: $oddRowColor;
+  animation: $deselectAnimationDuration deselectOddRowAnimation;
+}
+
+#item-table.table-striped>tbody>tr.selected-row:nth-of-type(odd) {
+  background-color: $selectedRowColor;
+  animation: $selectAnimationDuration selectOddRowAnimation;
+}
+
+#item-table.table-striped>tbody>tr.unselected-row:nth-of-type(even) {
+  background-color: $evenRowColor;
+  animation: $deselectAnimationDuration deselectEvenRowAnimation;
+}
+
+#item-table.table-striped>tbody>tr.selected-row:nth-of-type(even) {
+  background-color: $selectedRowColor;
+  animation: $selectAnimationDuration selectEvenRowAnimation;
+}
+
+@keyframes deselectOddRowAnimation {
+  from {
+    background-color: $selectedRowColor;
+  }
+  to {
+    background-color: $oddRowColor;
+  }
+}
+
+@keyframes selectOddRowAnimation {
+  from {
+    background-color: $oddRowColor;
+  }
+  to {
+    background-color: $selectedRowColor;
+  }
+}
+
+@keyframes deselectEvenRowAnimation {
+  from {
+    background-color: $selectedRowColor;
+  }
+  to {
+    background-color: $evenRowColor;
+  }
+}
+
+@keyframes selectEvenRowAnimation {
+  from {
+    background-color: $evenRowColor;
+  }
+  to {
+    background-color: $selectedRowColor;
+  }
+}
